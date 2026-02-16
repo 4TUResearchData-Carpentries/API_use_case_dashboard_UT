@@ -47,7 +47,7 @@ def normalize_articles_to_df(articles: List[Dict[str, Any]], group_map: Dict[int
     return df
 
 
-def fetch_recent_articles_paged(client: FourTUClient) -> List[Dict[str, Any]]:
+def fetch_recent_articles_paged(client: FourTUClient, item_type: int) -> List[Dict[str, Any]]:
     """
     Pull N pages of recent articles using limit+offset (MVP).
     This keeps load bounded and workshop-friendly.
@@ -56,11 +56,12 @@ def fetch_recent_articles_paged(client: FourTUClient) -> List[Dict[str, Any]]:
     page_size = _get_env_int("UC01_PAGE_SIZE", 100)
     max_pages = _get_env_int("UC01_MAX_PAGES", 3)
 
+
     all_articles: List[Dict[str, Any]] = []
     for page in range(max_pages):
         offset = page * page_size
         batch = client.get_articles(
-            item_type=3,
+            item_type=item_type,
             published_since=published_since,
             limit=page_size,
             offset=offset,
@@ -88,25 +89,25 @@ def load_or_fetch_groups(client: FourTUClient, use_cache: bool = True) -> List[D
     return groups if isinstance(groups, list) else []
 
 
-def load_or_fetch_articles(client: FourTUClient, use_cache: bool = True) -> List[Dict[str, Any]]:
-    cache_name = "articles_recent.json"
+def load_or_fetch_articles(client: FourTUClient, item_type: int , use_cache: bool = True) -> List[Dict[str, Any]]:
+    cache_name = f"articles_recent_item_type_{item_type}.json"
     if use_cache:
         cached = load_json(cache_name)
         if isinstance(cached, list):
             return cached
-    articles = fetch_recent_articles_paged(client)
+    articles = fetch_recent_articles_paged(client,item_type=item_type)
     if use_cache:
         save_json(cache_name, articles)
     return articles
 
 
-def build_monitoring_dataframe(use_cache: bool = True) -> pd.DataFrame:
+def build_monitoring_dataframe(item_type: int = 3, use_cache: bool = True) -> pd.DataFrame:
     client = FourTUClient()
 
     groups = load_or_fetch_groups(client, use_cache=use_cache)
     group_map = build_group_map(groups)
 
-    articles = load_or_fetch_articles(client, use_cache=use_cache)
+    articles = load_or_fetch_articles(client, item_type=item_type, use_cache=use_cache)
     df = normalize_articles_to_df(articles, group_map)
 
     # Normalize date column for filtering

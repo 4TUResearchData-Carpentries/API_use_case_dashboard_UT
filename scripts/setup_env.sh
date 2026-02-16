@@ -8,6 +8,6 @@ source .venv/bin/activate
 
 pip install -r requirements.txt
 
-echo "✅ Environment ready."
+echo "✅ Environment ready "
 echo "Activate with: source .venv/bin/activate"
 

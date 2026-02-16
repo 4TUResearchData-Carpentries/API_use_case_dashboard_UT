@@ -13,11 +13,20 @@ with st.sidebar:
     st.header("Filters")
     use_cache = st.checkbox("Use local cache", value=True)
 
-@st.cache_data(show_spinner=True)
-def load_df_cached(use_cache_flag: bool) -> pd.DataFrame:
-    return build_monitoring_dataframe(use_cache=use_cache_flag)
+    item_type_label = st.selectbox(
+        "Item type",
+        options=["Dataset (3)", "Software (9)"],
+        index=0,
+    )
 
-df = load_df_cached(use_cache)
+    item_type = 3 if item_type_label.startswith("Dataset") else 9
+
+
+@st.cache_data(show_spinner=True)
+def load_df_cached(use_cache_flag: bool, item_type: int) -> pd.DataFrame:
+    return build_monitoring_dataframe(item_type=item_type, use_cache=use_cache_flag)
+
+df = load_df_cached(use_cache,item_type=item_type)
 
 if df.empty:
     st.warning("No data returned. Try disabling cache or adjusting UC01_* environment variables.")

@@ -13,11 +13,14 @@ Welcome to the **XXXXXXX**! for XXXX, on XXXXXX.  This repository contains instr
    - `bash scripts/setup_env.sh`
 
 2. Copy environment template:
-    - `sed -i 's/\r$//' .env` # Remove Windows line endings if present 
+   
     - `cp .env.example .env`
+    - `sed -i 's/\r$//' .env` # Remove Windows line endings if present 
 
 3. Run UC01 dashboard:
-   - `source .env`
+    - `set -a`
+    - `source .env`
+    - `set +a`
    - `streamlit run app/streamlit_app.py`
 
 4. Run tests (offline, using fixtures):
