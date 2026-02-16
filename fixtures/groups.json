@@ -1,0 +1,149 @@
+[
+  {
+    "id": 28586,
+    "parent_id": 28585,
+    "name": "Delft University of Technology",
+    "association": "tudelft.nl",
+    "is_featured": true
+  },
+  {
+    "id": 28589,
+    "parent_id": 28585,
+    "name": "Eindhoven University of Technology",
+    "association": "tue.nl",
+    "is_featured": true
+  },
+  {
+    "id": 28628,
+    "parent_id": 28586,
+    "name": "Delft University of Technology Students",
+    "association": "student.tudelft.nl",
+    "is_featured": true
+  },
+  {
+    "id": 28634,
+    "parent_id": 28592,
+    "name": "University of Twente Students",
+    "association": "student.utwente.nl",
+    "is_featured": true
+  },
+  {
+    "id": 28631,
+    "parent_id": 28589,
+    "name": "Eindhoven University of Technology Students",
+    "association": "student.tue.nl",
+    "is_featured": true
+  },
+  {
+    "id": 28592,
+    "parent_id": 28585,
+    "name": "University of Twente",
+    "association": "utwente.nl",
+    "is_featured": true
+  },
+  {
+    "id": 28595,
+    "parent_id": 28585,
+    "name": "Wageningen University and Research",
+    "association": "wur.nl",
+    "is_featured": true
+  },
+  {
+    "id": 28598,
+    "parent_id": 28585,
+    "name": "Other institutions",
+    "association": "nogroup",
+    "is_featured": true
+  },
+  {
+    "id": 28900,
+    "parent_id": 28598,
+    "name": "The Netherlands Cancer Institute",
+    "association": "nki.nl",
+    "is_featured": null
+  },
+  {
+    "id": 35313,
+    "parent_id": 34901,
+    "name": "University of Amsterdam Students",
+    "association": "student.uva.nl",
+    "is_featured": null
+  },
+  {
+    "id": 34919,
+    "parent_id": 28598,
+    "name": "Maastricht University",
+    "association": "maastrichtuniversity.nl",
+    "is_featured": null
+  },
+  {
+    "id": 34907,
+    "parent_id": 28598,
+    "name": "Deltares",
+    "association": "deltares.nl",
+    "is_featured": null
+  },
+  {
+    "id": 34892,
+    "parent_id": 28598,
+    "name": "NIOZ Royal Netherlands Institute for Sea Research",
+    "association": "nioz.nl",
+    "is_featured": null
+  },
+  {
+    "id": 34916,
+    "parent_id": 28598,
+    "name": "University of Groningen",
+    "association": "rug.nl",
+    "is_featured": null
+  },
+  {
+    "id": 34901,
+    "parent_id": 28598,
+    "name": "University of Amsterdam",
+    "association": "uva.nl",
+    "is_featured": null
+  },
+  {
+    "id": 34895,
+    "parent_id": 28598,
+    "name": "Leiden University",
+    "association": "leidenuniv.nl",
+    "is_featured": null
+  },
+  {
+    "id": 34904,
+    "parent_id": 28598,
+    "name": "Erasmus University Rotterdam",
+    "association": "eur.nl",
+    "is_featured": null
+  },
+  {
+    "id": 34913,
+    "parent_id": 28598,
+    "name": "Radboud University",
+    "association": "ru.nl",
+    "is_featured": null
+  },
+  {
+    "id": 34910,
+    "parent_id": 28598,
+    "name": "IHE Delft Institute for Water Education",
+    "association": "un-ihe.org",
+    "is_featured": null
+  },
+  {
+    "id": 34898,
+    "parent_id": 28598,
+    "name": "Utrecht University",
+    "association": "uu.nl",
+    "is_featured": null
+  },
+  {
+    "id": 28585,
+    "parent_id": 0,
+    "name": "4TU.ResearchData",
+    "association": "",
+    "is_featured": null
+  }
+]
