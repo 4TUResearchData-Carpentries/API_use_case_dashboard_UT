@@ -1,0 +1,17 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Env / secrets
+.env
+
+# Data outputs
+data/output/
+use_cases/**/data/
+*.csv
+
+# Notebooks (optional)
+.ipynb_checkpoints/
