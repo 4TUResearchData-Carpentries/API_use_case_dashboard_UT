@@ -15,3 +15,15 @@ use_cases/**/data/
 
 # Notebooks (optional)
 .ipynb_checkpoints/
+
+
+# Complex app
+
+api/
+
+app/
+
+curl/
+fixtures/
+scripts/ 
+tests/
