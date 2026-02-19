@@ -13,44 +13,83 @@ By the end, participants can:
 
 ## Timeboxed agenda (2h30)
 
-### 0:00–0:10 — Orientation + “What we’re building”
+### 0:00–0:10 — Workshop Setup
 
-* Show final dashboard briefly (your MVP).
-* Explain the “thin client + transformations + UI” structure.
-* Confirm everyone can run:
+Before the workshop, please:
 
-  * `source .venv/bin/activate`
-  * `streamlit run lesson_code.py`
+### Step 1 — Clone the repository
 
-Deliverable: participants see a Streamlit page (even if blank).
+```bash
+git clone git@github.com:4TUResearchData-Carpentries/API_use_case_dashboard_UT.git
+cd API_use_case_dashboard_UT
+```
+### Step 2 — Create and activate virtual environment
 
----
+Mac/Linux:
+
+```bash
+rm -rf .venv #(start with a clean environment)
+python -m venv .venv
+source .venv/bin/activate
+
+```
+
+Windows (PowerShell):
+
+```bash
+
+python -m venv .venv
+.venv\Scripts\activate
+
+```
+### Step 3 — Install dependencies
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+### Step 4 — Create .env file
+
+Create a `.env` file in the project root with the following content:
+
+```
+# Production public base URL
+FOURTU_BASE_URL=https://data.4tu.nl
+
+# Request tuning
+FOURTU_TIMEOUT=30
+
+# Dashboard defaults
+UC01_PUBLISHED_SINCE=2025-01-01
+UC01_PAGE_SIZE=100
+UC01_MAX_PAGES=3
+
+# Optional: only needed if you encounter import errors when running from the repo root 
+PYTHONPATH=.
+
+# Optional : If you already have a 4TU API token, you may add:
+
+FOURTU_TOKEN=your_token_here
+
+```
 
 ### 0:10–0:25 — Step 1: Minimal Streamlit app (no API yet)
 
 **Goal:** a Streamlit page with a sidebar and a placeholder table.
 
-Build:
-
-* `st.set_page_config`, `st.title`, `st.sidebar`
-* A dummy `pd.DataFrame` and `st.dataframe(df)`
-
-
-
-Deliverable: app runs; participants understand Streamlit layout basics.
+Build: Deliverable: app runs; participants understand Streamlit layout basics.
 
 ```python
 
 import streamlit as st
 
-st.set_page_config(page_title="4TU Monitoring", layout="wide")
-st.title("4TU Monitoring Dashboard")
+st.set_page_config(page_title="Dataset Monitoring Dashboard", layout="wide")
+st.title("Dataset Monitoring Dashboard")
 
-
-with st.sidebar:
-    st.header("Query")
+st.sidebar.header("Filters")
 
 ```
+`python -m streamlit run app.py` to test.
 
 ---
 
