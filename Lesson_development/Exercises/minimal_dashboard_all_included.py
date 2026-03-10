@@ -57,7 +57,7 @@ try:
     articles_data = get_json(
         ARTICLES_ENDPOINT,
         params={
-            "limit": 500,
+            "limit": 11687,
             "offset": 0,
         },
     )
