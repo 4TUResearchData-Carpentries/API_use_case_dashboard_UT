@@ -246,7 +246,7 @@ with col1:
 with col2:
     st.dataframe(
         filtered.drop(columns=["group_id"], errors="ignore"),
-        use_container_width=True,
+        width="strecht",
         hide_index=True,
     )
 
