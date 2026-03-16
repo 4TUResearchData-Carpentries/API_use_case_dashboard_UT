@@ -12,9 +12,9 @@ By the end of the workshop, you will be able to:
 
 - Apply the API data flow: request → JSON → DataFrame → Streamlit UI
 
-- Add filters and CSV download functionality
+- Add different filters 
+- Deploy the application in a webserver 
 
-- Optionally implement caching and diagnostics
 
 We will live-code everything in a single script.
 
@@ -24,39 +24,121 @@ We will live-code everything in a single script.
 
 Before the workshop, please:
 
-### Step 1 — Clone the repository
+### 1. Check your Python installation
+
+Make sure you have **Python 3.10 or newer** installed.
+
+Open a Unix terminal
+(**Git Bash on Windows, Terminal on macOS or Linux**) and run:
 
 ```bash
-git clone git@github.com:4TUResearchData-Carpentries/API_use_case_dashboard_UT.git
-cd API_use_case_dashboard_UT
-```
-### Step 2 — Create and activate virtual environment
-
-Mac/Linux:
-
-```bash
-
-python -m venv .venv
-source .venv/bin/activate
-
+python --version
 ```
 
-Windows (PowerShell):
+or
 
 ```bash
-
-python -m venv .venv
-.venv\Scripts\activate
-
+python3 --version
 ```
 
 
 
-### Step 3 — Install dependencies
+### 2. Create a project folder
+
+Create a new folder for the workshop project and move into it:
+
+```bash
+mkdir api-dashboard-workshop
+cd api-dashboard-workshop
+```
+
+
+
+### 3. Create and activate a virtual environment
+
+Inside the project folder, create a virtual environment:
+
+```bash
+python3 -m venv api-dashboard-env
+```
+
+Activate the environment:
+
+#### macOS / Linux
+
+```bash
+source api-dashboard-env/bin/activate
+```
+
+#### Windows (Git Bash)
+
+```bash
+source api-dashboard-env/Scripts/activate
+```
+
+After activation, your terminal should display something like:
+
+```
+(api-dashboard-env)
+```
+
+
+### 4. Install the required libraries
+
+#### 4.1 Create a requirements file
+
+```bash
+touch requirements.txt
+```
+
+#### 4.2 Add the following libraries to the file
+
+Open the file with any text editor and paste:
+
+```
+requests>=2.31
+pandas>=2.0
+streamlit>=1.30
+python-dotenv>=1.0
+pytest>=8.0
+ruff>=0.4
+python-dateutil>=2.8
+```
+
+### 4.3 Install the libraries
+
+Run:
 
 ```bash
 pip install -r requirements.txt
 ```
+
+
+
+### 5. Verify that Streamlit works
+
+Test that Streamlit was installed correctly:
+
+```bash
+streamlit hello
+```
+
+This should open a **demo Streamlit application in your browser**.
+
+### 6. Install Git (if needed)
+
+The deployment step of the workshop will require **Git** and a **GitHub account**.
+
+Check whether Git is installed:
+
+```bash
+git --version
+```
+
+If Git is not installed, download it from:
+
+[https://git-scm.com/](https://git-scm.com/)
+
 
 
 ## 🛠 Prerequisites
